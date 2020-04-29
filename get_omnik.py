@@ -9,7 +9,7 @@ import omnik
 x = omnik.OMNIK('192.168.0.133')
 x.read()
 
-print(x.serialNumber)
-print(x.yieldToday)
-print(x.yieldTotal)
+print('Serial number :', x.serialNumber)
+print('Yield Today   :', x.yieldToday, ' kWh')
+print('Yield Total   :', x.yieldTotal, ' kWh')
 
