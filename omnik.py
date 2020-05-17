@@ -21,13 +21,16 @@ class OMNIK:
         '''
         Read the realtime data from the OMNIK inverter
         '''
-        
-        f = urllib.request.urlopen('http://' + self.ip_address + '/js/status.js')
-        result = str(f.readline(),encoding="utf-8")
-        x = result.split('var webData="')
-        y = x[1].split('"')
-        z = y[0]
-        self.fields = z.split(",")
+        try:
+            f = urllib.request.urlopen('http://' + self.ip_address + '/js/status.js')
+            result = str(f.readline(),encoding="utf-8")
+            x = result.split('var webData="')
+            y = x[1].split('"')
+            z = y[0]
+            self.fields = z.split(",")
+            return True
+        except:
+            return False
 
     @property
     def age(self):
