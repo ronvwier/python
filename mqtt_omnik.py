@@ -5,7 +5,7 @@ import json
 from omnik import *
 
 # Get date/time and inverter data
-sensor = OMNIK('192.168.0.133')
+sensor = OMNIK('192.168.0.135')
 x_time = datetime.datetime.now().isoformat()
 
 if sensor.read():
