@@ -2,7 +2,7 @@
 import datetime
 import paho.mqtt.client as mqtt
 import json
-from omnik import *
+from omnik import OMNIK
 
 # Get date/time and inverter data
 sensor = OMNIK('192.168.0.135')
