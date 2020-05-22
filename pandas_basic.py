@@ -8,5 +8,6 @@ index = [1, 2, 3])
 
 df.to_excel('pandas.xlsx')
 
+
 print(df)
 print(df.describe())
