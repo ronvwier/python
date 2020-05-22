@@ -10,4 +10,3 @@ df.to_excel('pandas.xlsx')
 
 print(df)
 print(df.describe())
-print(df.plot.bar())
