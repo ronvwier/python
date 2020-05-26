@@ -6,8 +6,9 @@ def on_connect(client, userdata, flags, rc):
 
 def on_message(client, userdata, msg):
 	#The callback for when a PUBLISH message is received from the server.
-	print("Message received-> " + msg.topic + " " + str(msg.payload))
-   
+	print(f"Message received-> {msg.topic} {msg.payload} retain={msg.retain} qos={msg.qos}")
+
+
 def on_log(client, userdata, level, buf):
     print("log: ",buf) 
 
