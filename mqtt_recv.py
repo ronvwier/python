@@ -2,7 +2,7 @@ import paho.mqtt.client as mqtt
 
 def on_connect(client, userdata, flags, rc):
 	#The callback for when the client connects to the broker
-    client.subscribe([('time/#',0),('env/#',0),('inverter/#',0)])
+    client.subscribe([('time/#',0),('timer/#',0),('env/#',0),('inverter/#',0)])
 
 def on_message(client, userdata, msg):
 	#The callback for when a PUBLISH message is received from the server.
