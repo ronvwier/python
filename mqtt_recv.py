@@ -1,12 +1,16 @@
 import paho.mqtt.client as mqtt
+import datetime
 
 def on_connect(client, userdata, flags, rc):
 	#The callback for when the client connects to the broker
-    client.subscribe([('time/#',0),('timer/#',0),('env/#',0),('inverter/#',0)])
+    client.subscribe([('time/#',0),('timer/#',0),('env/#',0),('inverter/#',0),('test/#',0)])
 
 def on_message(client, userdata, msg):
 	#The callback for when a PUBLISH message is received from the server.
-	print(f"Message received-> {msg.topic} {msg.payload} retain={msg.retain} qos={msg.qos}")
+	x = datetime.datetime.now()
+	x_date = x.strftime('%a %d %b %Y')
+	x_time = x.strftime('%H:%M:%S')
+	print(f"{x_date} {x_time} : {msg.topic} {msg.payload} retain={msg.retain} qos={msg.qos}")
 
 
 def on_log(client, userdata, level, buf):
@@ -20,5 +24,5 @@ client.on_message = on_message
 client.connect('192.168.0.129')
 
 while True:
-	print('loop')
+	#print('loop')
 	client.loop()  # Start networking daemon
