@@ -1,5 +1,5 @@
 '''
-Read OMNIK inverter excel sheets with pandas
+Read OMNIK inverter excel sheets
 
 Read the OMNIK values and calculate max per hour
 '''
@@ -12,7 +12,7 @@ df = pd.read_excel('pandas_omnik.xlsx', skiprows=8 , skipfooter=3)
 df2 = df.rename(columns={"Time(GMT +1)": "Time"})
 
 # Calculate the hour and correct for summertime (GMT+2)
-df2['Hour'] = df2['Time'].str[7:9].astype(int) +1
+df2['Hour'] = pd.to_numeric(df2['Time'].str[7:9]) +1
 
 # Obtain the max values (Pac1 = power)
 df4 = df2.set_index(['Hour','Time'])
