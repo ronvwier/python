@@ -13,4 +13,9 @@ df = pd.read_excel('pandas_omnik.xlsx', skiprows=8 , skipfooter=3).rename(column
 df['Hour'] = pd.to_numeric(df['Time'].str[7:9]) +1
 
 # Obtain the max values (Pac1 = power)
-print(df.set_index('Hour').filter(items=['Hour', 'Pac1']).max(level='Hour'))
+dfresult = df.set_index('Hour').filter(items=['Hour', 'Pac1']).max(level='Hour').reset_index()
+
+hour_list = dfresult['Hour'].tolist()
+print(hour_list)
+power_list = dfresult['Pac1'].tolist()
+print(power_list)
